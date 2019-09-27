@@ -6,5 +6,5 @@
 setlocal enabledelayedexpansion
 
   :: VIM
-      mkdir ..\.vim
-      xcopy vim\* ..\.vim\
+      mkdir !HOME!\.vim
+      xcopy * ..\.vim\
