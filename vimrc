@@ -8,12 +8,13 @@
 
 " Vim Plug
 
-  if empty(glob('~/.vim/autoload/plug.vim'))
-      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  if empty(glob('~/.config/vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
           \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
-  call plug#begin('~/.vim/plugged')
+
+  call plug#begin('~/.config/vim/plugged')
       Plug 'mattn/emmet-vim'
       Plug 'junegunn/goyo.vim'
   call plug#end()
@@ -227,6 +228,10 @@
   :iabbrev mailtol Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
   :iabbrev signf <cr>Kind Regards,<cr><cr>Julian Orchard ~ contact@julians.email
   :iabbrev signi <cr>Many thanks,<cr><cr>Julian ~ contact@julians.email
+
+" Timestamp F5
+  nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+  imap <F5> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " Added automatically by 'spell' script
   :command Spell :set spell
