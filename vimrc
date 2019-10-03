@@ -17,7 +17,14 @@
   call plug#begin('~/.config/vim/plugged')
       Plug 'mattn/emmet-vim'
       Plug 'junegunn/goyo.vim'
+      Plug 'junegunn/vim-easy-align'
   call plug#end()
+
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
 
 
     """"""""""""""""""""""""""""""""
@@ -216,19 +223,41 @@
       " Notes
         autocmd BufNewFile,BufRead *.note       :so ~/.vim/src/not.vim
 
+
+
+" Signature ~ for neomutt, etc.
+
+  " FORMAL
+    " julians.email
+      :iabbrev mailtofj Hi NAME, <cr><cr>QW<cr><cr>Kind regards, <cr><cr>Julian Orchard ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
+    " kingjulian.xyz
+      :iabbrev mailtofk Hi NAME, <cr><cr>QW<cr><cr>Kind regards, <cr><cr>Julian ~<cr><cr>@officialkingjulian<cr>official@kingjulian.xyz<cr>     www.kingjulian.xyz<esc>? NAME<esc>c2w
+    " hotmail.com
+      :iabbrev mailtofh Hi NAME, <cr><cr>QW<cr><cr>Kind regards, <cr><cr>Julian Orchard ~<cr><cr>julianorchard.com<cr>julianorchard@hotmail.com<esc>? NAME<esc>c2w
+
+  " INFORMAL
+    " julians.email
+      :iabbrev mailtoij Hi NAME, <cr><cr>QW<cr><cr>Many thanks, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
+    " kingjulian.xyz
+      :iabbrev mailtoik Hi NAME, <cr><cr>QW<cr><cr>Many thanks, <cr><cr>Julian ~<cr><cr>@officialkingjulian<cr>official@kingjulian.xyz<cr>     www.kingjulian.xyz<esc>? NAME<esc>c2w
+    " hotmail.com
+      :iabbrev mailtoih Hi NAME, <cr><cr>QW<cr><cr>Many thanks, <cr><cr>Julian ~<cr><cr>julianorchard.com<cr>julianorchard@hotmail.com<esc>? NAME<esc>c2w
+ 
+  " VERY INFORMAL
+    " julians.email
+      :iabbrev mailtolj Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
+    " kingjulian.xyz
+      :iabbrev mailtolk Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>@officialkingjulian<cr>official@kingjulian.xyz<cr>     www.kingjulian.xyz<esc>? NAME<esc>c2w
+    " hotmail.com
+      :iabbrev mailtolh Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>julianorchard.com<cr>julianorchard@hotmail.com<esc>? NAME<esc>c2w
+
+
     """""""""""""""""""""""""""""""""""""""""""""""""""
     "      Keep this at the bottom of the file!       "
     " Little Spell Check - update through the command "
     "           :!spell <wrong> <correct>             "
     """""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Signature ~ Unrelated to spelling, just neat 
-  :iabbrev mailtof Hi NAME, <cr><cr>QW<cr><cr>Kind regards, <cr><cr>Julian Orchard ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
-  :iabbrev mailtoi Hi NAME, <cr><cr>QW<cr><cr>Many thanks, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
-  :iabbrev mailtol Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
-  :iabbrev signf <cr>Kind Regards,<cr><cr>Julian Orchard ~ contact@julians.email
-  :iabbrev signi <cr>Many thanks,<cr><cr>Julian ~ contact@julians.email
-
+  
 " Timestamp F5
   nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
   imap <F5> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
