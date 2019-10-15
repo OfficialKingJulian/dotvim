@@ -10,5 +10,3 @@ setlocal enabledelayedexpansion
       xcopy /E/H * !HOME!\.vim\
       :: Remove This
       rmdir /S/Q !HOME!\vim
-      cd ..
-      rmdir vim
