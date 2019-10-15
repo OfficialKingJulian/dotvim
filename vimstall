@@ -6,8 +6,7 @@
   echo ""
   if [ ! -d "${HOME}/.config" ] ; then mkdir ${HOME}/.config ; fi
   cp -r ../vim ${HOME}/.config/.
-  sudo rm -r ${HOME}/.vim/
-  ln -sf ${HOME}/.config/vim ${HOME}/.vim  
+  ln -sf ${HOME}/.config/vim/ ${HOME}/.vim/
 
 # VIM Plug, for 'Goyo' mainly
   echo ""
@@ -15,4 +14,3 @@
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   echo ""
  
-  ls -la ${HOME}/.config/vim

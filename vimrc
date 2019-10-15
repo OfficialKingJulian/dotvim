@@ -8,23 +8,15 @@
 
 " Vim Plug
 
-  if empty(glob('~/.config/vim/autoload/plug.vim'))
-      silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+  if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
           \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
-
-  call plug#begin('~/.config/vim/plugged')
+  call plug#begin('~/.vim/plugged')
       Plug 'mattn/emmet-vim'
       Plug 'junegunn/goyo.vim'
-      Plug 'junegunn/vim-easy-align'
   call plug#end()
-
-  " Start interactive EasyAlign in visual mode (e.g. vipga)
-  xmap ga <Plug>(EasyAlign)
-
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
 
 
     """"""""""""""""""""""""""""""""
@@ -212,55 +204,29 @@
     
     " File-Specific Things
       " Web
-        autocmd BufNewFile,BufRead *.html       :so ~/.vim/src/web.vim
-        autocmd BufNewFile,BufRead *.css        :so ~/.vim/src/web.vim
-        autocmd BufNewFile,BufRead *.php        :so ~/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.html       :so ./src/web.vim
+        autocmd BufNewFile,BufRead *.css        :so ./src/web.vim
+        autocmd BufNewFile,BufRead *.php        :so ./src/web.vim
       " Text
-        autocmd BufNewFile,BufRead *.txt        :so ~/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead *.md         :so ~/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead *.markdown   :so ~/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead neomutt*     :so ~/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.txt        :so ./src/txt.vim
+        autocmd BufNewFile,BufRead *.md         :so ./src/txt.vim
+        autocmd BufNewFile,BufRead *.markdown   :so ./src/txt.vim
+        autocmd BufNewFile,BufRead neomutt*     :so ./src/txt.vim
       " Notes
-        autocmd BufNewFile,BufRead *.note       :so ~/.vim/src/not.vim
-
-
-
-" Signature ~ for neomutt, etc.
-
-  " FORMAL
-    " julians.email
-      :iabbrev mailtofj Hi NAME, <cr><cr>QW<cr><cr>Kind regards, <cr><cr>Julian Orchard ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
-    " kingjulian.xyz
-      :iabbrev mailtofk Hi NAME, <cr><cr>QW<cr><cr>Kind regards, <cr><cr>Julian ~<cr><cr>@officialkingjulian<cr>official@kingjulian.xyz<cr>     www.kingjulian.xyz<esc>? NAME<esc>c2w
-    " hotmail.com
-      :iabbrev mailtofh Hi NAME, <cr><cr>QW<cr><cr>Kind regards, <cr><cr>Julian Orchard ~<cr><cr>julianorchard.com<cr>julianorchard@hotmail.com<esc>? NAME<esc>c2w
-
-  " INFORMAL
-    " julians.email
-      :iabbrev mailtoij Hi NAME, <cr><cr>QW<cr><cr>Many thanks, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
-    " kingjulian.xyz
-      :iabbrev mailtoik Hi NAME, <cr><cr>QW<cr><cr>Many thanks, <cr><cr>Julian ~<cr><cr>@officialkingjulian<cr>official@kingjulian.xyz<cr>     www.kingjulian.xyz<esc>? NAME<esc>c2w
-    " hotmail.com
-      :iabbrev mailtoih Hi NAME, <cr><cr>QW<cr><cr>Many thanks, <cr><cr>Julian ~<cr><cr>julianorchard.com<cr>julianorchard@hotmail.com<esc>? NAME<esc>c2w
- 
-  " VERY INFORMAL
-    " julians.email
-      :iabbrev mailtolj Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
-    " kingjulian.xyz
-      :iabbrev mailtolk Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>@officialkingjulian<cr>official@kingjulian.xyz<cr>     www.kingjulian.xyz<esc>? NAME<esc>c2w
-    " hotmail.com
-      :iabbrev mailtolh Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>julianorchard.com<cr>julianorchard@hotmail.com<esc>? NAME<esc>c2w
-
+        autocmd BufNewFile,BufRead *.note       :so ./src/not.vim
 
     """""""""""""""""""""""""""""""""""""""""""""""""""
     "      Keep this at the bottom of the file!       "
     " Little Spell Check - update through the command "
     "           :!spell <wrong> <correct>             "
     """""""""""""""""""""""""""""""""""""""""""""""""""
-  
-" Timestamp F5
-  nmap <F5> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-  imap <F5> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
+" Signature ~ Unrelated to spelling, just neat 
+  :iabbrev mailtof Hi NAME, <cr><cr>QW<cr><cr>Kind regards, <cr><cr>Julian Orchard ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
+  :iabbrev mailtoi Hi NAME, <cr><cr>QW<cr><cr>Many thanks, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
+  :iabbrev mailtol Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
+  :iabbrev signf <cr>Kind Regards,<cr><cr>Julian Orchard ~ contact@julians.email
+  :iabbrev signi <cr>Many thanks,<cr><cr>Julian ~ contact@julians.email
 
 " Added automatically by 'spell' script
   :command Spell :set spell
