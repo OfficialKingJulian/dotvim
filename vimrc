@@ -38,6 +38,8 @@
     :set lazyredraw
     :set noshowmatch
     :set belloff=all
+    :set mouse=
+    :set ttymouse=
 
   " :Q also works
     :command! Q :q
