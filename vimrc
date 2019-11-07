@@ -1,3 +1,4 @@
+
 " .VIMRC by Julian, using Vim Plug plugin manager
   set viminfo+=n~/.vim/viminfo
 
@@ -229,6 +230,10 @@
   :iabbrev mailtol Hi NAME, <cr><cr>QW<cr><cr>Love, <cr><cr>Julian ~<cr><cr>julian.marketing<cr>contact@julians.email<esc>? NAME<esc>c2w
   :iabbrev signf <cr>Kind Regards,<cr><cr>Julian Orchard ~ contact@julians.email
   :iabbrev signi <cr>Many thanks,<cr><cr>Julian ~ contact@julians.email
+
+" F5 to timestamp
+  nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+  imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
 " Added automatically by 'spell' script
   :command Spell :set spell
