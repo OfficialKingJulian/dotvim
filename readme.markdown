@@ -1,4 +1,4 @@
 # vim dotfiles
 
-Clone, ./vimstall, and (most importantly)
-:PlugInstall!!!
+`git clone`, `cd dotvim`, `./vimstall`, and (most importantly), 
+`vim` into any file and then `:PlugInstall`!!! 😩
