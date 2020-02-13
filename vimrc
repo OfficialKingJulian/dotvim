@@ -207,16 +207,16 @@
     
     " File-Specific Things
       " Web
-        autocmd BufNewFile,BufRead *.html       :so ./src/web.vim
-        autocmd BufNewFile,BufRead *.css        :so ./src/web.vim
-        autocmd BufNewFile,BufRead *.php        :so ./src/web.vim
+        autocmd BufNewFile,BufRead *.html       :so ${HOME}/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.css        :so ${HOME}/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.php        :so ${HOME}/.vim/src/web.vim
       " Text
-        autocmd BufNewFile,BufRead *.txt        :so ./src/txt.vim
-        autocmd BufNewFile,BufRead *.md         :so ./src/txt.vim
-        autocmd BufNewFile,BufRead *.markdown   :so ./src/txt.vim
-        autocmd BufNewFile,BufRead neomutt*     :so ./src/txt.vim
+        autocmd BufNewFile,BufRead *.txt        :so ${HOME}/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.md         :so ${HOME}/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.markdown   :so ${HOME}/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead neomutt*     :so ${HOME}/.vim/src/txt.vim
       " Notes
-        autocmd BufNewFile,BufRead *.note       :so ./src/not.vim
+        autocmd BufNewFile,BufRead *.note       :so ${HOME}/.vim/src/not.vim
 
     """""""""""""""""""""""""""""""""""""""""""""""""""
     "      Keep this at the bottom of the file!       "
@@ -266,3 +266,4 @@
   :iabbrev resiliant resilient
   :iabbrev Resiliant Resilient
   :iabbrev Janruary January
+
