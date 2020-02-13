@@ -5,6 +5,7 @@
   if [[ ! -d "${HOME}/.config/vim" ]] ; then mkdir ${HOME}/.config/vim ; fi
   cp -r ../dotvim/* ${HOME}/.config/vim/.
   cp -r .git ${HOME}/.config/vim/.
+  cp .gitignore ${HOME}/.config/vim/.
   if [[ ! -h "${HOME}/.vim" ]] ; then ln -sf ${HOME}/.config/vim/ ${HOME}/.vim/ ; fi
 
 # Vim Plug ~ Plugin Manager
