@@ -8,10 +8,40 @@
     """"""""""""""""""""""""""""""""
 
 " Vim Plug Autoload
-  if empty(glob('~/.vim/autoload/plug.vim'))
-      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" and check if Windows
+  if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+      " Don't ask if files are actually there
+        if empty(glob('~/_vim/autoload/plug.vim'))
+          silent !curl -fLo ~\_vim\autoload\plug.vim --create-dirs
+              \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+          autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        endif  
+      " File Specific
+        autocmd BufNewFile,BufRead *.html       :so ~\.vim\src\web.vim
+        autocmd BufNewFile,BufRead *.css        :so ~\.vim\src\web.vim
+        autocmd BufNewFile,BufRead *.php        :so ~\.vim\src\web.vim
+        autocmd BufNewFile,BufRead *.txt        :so ~\.vim\src\txt.vim
+        autocmd BufNewFile,BufRead *.md         :so ~\.vim\src\txt.vim
+        autocmd BufNewFile,BufRead *.markdown   :so ~\.vim\src\txt.vim
+        autocmd BufNewFile,BufRead neomutt*     :so ~\.vim\src\txt.vim
+        autocmd BufNewFile,BufRead *.note       :so ~\.vim\src\not.vim
+    else
+      if empty(glob('~/.vim/autoload/plug.vim'))
+          silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+              \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+          autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+      endif
+      " File Specific
+        autocmd BufNewFile,BufRead *.html       :so ~/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.css        :so ~/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.php        :so ~/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.txt        :so ~/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.md         :so ~/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.markdown   :so ~/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead neomutt*     :so ~/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.note       :so ~/.vim/src/not.vim
+    endif
   endif
 " Plug List
   call plug#begin('~/.vim/plugged')
@@ -207,32 +237,20 @@
     """""""""""""""""""""""""""
     """ Status Bar Settings """
     """""""""""""""""""""""""""
-    set statusline=\ \ \ 
-    set statusline+=Julian\ VIM
-    set statusline+=\ \ \ \ \ \ 
-    set statusline+=%F%m%r%h%w\ 
-    set statusline+=\ \ \ \ \ \ 
-    set statusline+=File\ Type\:\ %Y
-    set statusline+=\ \ \ \ \ \ 
-    set statusline+=File\ Pos\:\ %p%%
-    set statusline+=\ \ \ \ \ \ 
-    set statusline+=Files\ Open\:\ %n\ \   
-    set statusline+=%=%{strftime('%c')}
-    set statusline+=\ \ \ \ \ 
+   "set statusline=\ \ \ 
+   "set statusline+=Julian\ VIM
+   "set statusline+=\ \ \ \ \ \ 
+   "set statusline+=%F%m%r%h%w\ 
+   "set statusline+=\ \ \ \ \ \ 
+   "set statusline+=File\ Type\:\ %Y
+   "set statusline+=\ \ \ \ \ \ 
+   "set statusline+=File\ Pos\:\ %p%%
+   "set statusline+=\ \ \ \ \ \ 
+   "set statusline+=Files\ Open\:\ %n\ \   
+   "set statusline+=%=%{strftime('%c')}
+   "set statusline+=\ \ \ \ \ 
 
     
-    " File-Specific Things
-      " Web
-        autocmd BufNewFile,BufRead *.html       :so ~/.vim/src/web.vim
-        autocmd BufNewFile,BufRead *.css        :so ~/.vim/src/web.vim
-        autocmd BufNewFile,BufRead *.php        :so ~/.vim/src/web.vim
-      " Text
-        autocmd BufNewFile,BufRead *.txt        :so ~/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead *.md         :so ~/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead *.markdown   :so ~/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead neomutt*     :so ~/.vim/src/txt.vim
-      " Notes
-        autocmd BufNewFile,BufRead *.note       :so ~/.vim/src/not.vim
 
     """""""""""""""""""""""""""""""""""""""""""""""""""
     "      Keep this at the bottom of the file!       "
