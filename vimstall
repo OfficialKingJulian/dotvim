@@ -1,14 +1,17 @@
 #!/bin/bash 
 
+# This is usually the dir
+  julian="/home/julian/.config/"
+
 # Copy Files To Correct Place
-  if [[ ! -d "${HOME}/.config" ]] ; then mkdir ${HOME}/.config ; fi
-  if [[ ! -d "${HOME}/.config/vim" ]] ; then mkdir ${HOME}/.config/vim ; fi
-  cp -r ../dotvim/* ${HOME}/.config/vim/.
-  cp -r .git ${HOME}/.config/vim/.
-  cp .gitignore ${HOME}/.config/vim/.
-  if [[ ! -h "${HOME}/.vim" ]] ; then ln -sf ${HOME}/.config/vim/ ${HOME}/.vim/ ; fi
+  if [[ ! -d "${julian}" ]] ; then mkdir ${julian} ; fi
+  if [[ ! -d "${julian}/vim" ]] ; then mkdir ${julian}/vim ; fi
+  cp -r ../dotvim/* ${julian}/vim/.
+  cp -r .git ${julian}/vim/.
+  cp .gitignore ${julian}/vim/.
+  if [[ ! -h "/home/julian/.vim" ]] ; then ln -sf ${julian}/vim/ /home/julian/.vim/ ; fi
 
 # Vim Plug ~ Plugin Manager
-  curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs \
+  curl -fLo ${julian}/vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  
