@@ -7,18 +7,40 @@
     """"     VIM Plug Setup     """"
     """"""""""""""""""""""""""""""""
 
-" Vim Plug
-
+" Vim Plug Autoload
   if empty(glob('~/.vim/autoload/plug.vim'))
       silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
           \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
+" Plug List
   call plug#begin('~/.vim/plugged')
-      Plug 'mattn/emmet-vim'
+    " Aesthetic
       Plug 'junegunn/goyo.vim'
+    " Calendar
+      Plug 'itchyny/calendar.vim'
+    " Web
+      Plug 'mattn/emmet-vim'
+      Plug 'ap/vim-css-color'
+    " Langs
+      Plug 'sheerun/vim-polyglot'
+    " NERDTree Stuff
+      Plug 'preservim/nerdtree'
+      Plug 'Xuyuanp/nerdtree-git-plugin'
+      Plug 'ryanoasis/vim-devicons'
+    " Airline
+      Plug 'vim-airline/vim-airline'
+    " Colourschemes
+      Plug 'flazz/vim-colorschemes'
   call plug#end()
 
+  " NERDTree on Startup
+     autocmd vimenter * NERDTree
+  " NERDTree; if last tab open, close vim
+     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+  " Colourscheme
+   :colorscheme Tomorrow-Night
 
     """"""""""""""""""""""""""""""""
     """" Custom Stuff Goes Here """"
@@ -41,6 +63,7 @@
     :set belloff=all
     :set mouse=
     :set ttymouse=
+    :set guifont=RobotoMonoRegular\ Nerd\ Font\ 11
 
   " :Q also works
     :command! Q :q
@@ -87,7 +110,6 @@
   " the end of the current line)
   " ALSO added Ctrl-X
     :vnoremap <c-c> y
-    :inoremap <c-v> <s-p>
     :vnoremap a <c-$>
     :vnoremap <c-x> d
 
@@ -115,12 +137,6 @@
   " Ammend Line
     :nnoremap <c-a> <s-$>a
     ":nnoremap <c-o> <CR>o
-
-  " Make searches case insensitive by default 
-  " (as cool as this is, I am going
-  "  to just use the :set ic)
-    ":nnoremap / /\c
-    ":nnoremap ? ?\c
 
   " Highlight as pattern is typed
     :set incsearch
@@ -207,16 +223,16 @@
     
     " File-Specific Things
       " Web
-        autocmd BufNewFile,BufRead *.html       :so ${HOME}/.vim/src/web.vim
-        autocmd BufNewFile,BufRead *.css        :so ${HOME}/.vim/src/web.vim
-        autocmd BufNewFile,BufRead *.php        :so ${HOME}/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.html       :so ~/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.css        :so ~/.vim/src/web.vim
+        autocmd BufNewFile,BufRead *.php        :so ~/.vim/src/web.vim
       " Text
-        autocmd BufNewFile,BufRead *.txt        :so ${HOME}/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead *.md         :so ${HOME}/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead *.markdown   :so ${HOME}/.vim/src/txt.vim
-        autocmd BufNewFile,BufRead neomutt*     :so ${HOME}/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.txt        :so ~/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.md         :so ~/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead *.markdown   :so ~/.vim/src/txt.vim
+        autocmd BufNewFile,BufRead neomutt*     :so ~/.vim/src/txt.vim
       " Notes
-        autocmd BufNewFile,BufRead *.note       :so ${HOME}/.vim/src/not.vim
+        autocmd BufNewFile,BufRead *.note       :so ~/.vim/src/not.vim
 
     """""""""""""""""""""""""""""""""""""""""""""""""""
     "      Keep this at the bottom of the file!       "
