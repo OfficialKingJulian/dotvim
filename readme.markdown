@@ -1,4 +1,7 @@
-# vim dotfiles
+# vim config
 
-`git clone`, `cd dotvim`, `sudo ./vimstall`, and (most importantly), 
-`vim` into any file and then `:PlugInstall`!!! 😩
+My vim setup. Uses vim plug. Simply `git clone
+https://github.com/OfficialKingJulian/dotvim
+~/.config/vim` then `ln -s ~/.config/vim/ ~/.vim/`
+(I've given up with an install script!). Finally
+open anything with vim and `:PlugInstall`
