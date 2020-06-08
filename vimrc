@@ -68,9 +68,11 @@
      autocmd vimenter * NERDTree
   " NERDTree; if last tab open, close vim
      autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  " Show Hidden Files by Default
+     let NERDTreeShowHidden=1
 
   " Colourscheme
-   :colorscheme Tomorrow-Night
+   :colorscheme elflord
 
     """"""""""""""""""""""""""""""""
     """" Custom Stuff Goes Here """"
@@ -139,9 +141,12 @@
   " Better Copy-Paste (Ctrl-C, Ctrl-P, a to go to 
   " the end of the current line)
   " ALSO added Ctrl-X
-    :vnoremap <c-c> y
+    :vnoremap <c-c> "+y
     :vnoremap a <c-$>
     :vnoremap <c-x> d
+  " Just use the same clipboard as system
+    :noremap  y "+y
+    :noremap  p "+p
 
   " Visual Visual Mode 
     :vnoremap <c-v> <c-q>
@@ -221,13 +226,18 @@
     :nnoremap G Gzz
   
   " 'd' Deletes, Doesn't Cut
-    nnoremap d "_d
-    vnoremap d "_d
+    :nnoremap d "_d
+    :vnoremap d "_d
 
   " Causes splits to go to the 
   " right and below etc.
     set splitbelow 
     set splitright 
+
+  " NERDTree Toggle
+    :nnoremap <c-\> :NERDTreeToggle<cr>
+
+
 
 
 
