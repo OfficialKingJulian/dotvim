@@ -65,14 +65,14 @@
   call plug#end()
 
   " NERDTree on Startup
-     autocmd vimenter * NERDTree
+    "autocmd vimenter * NERDTree
   " NERDTree; if last tab open, close vim
      autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   " Show Hidden Files by Default
      let NERDTreeShowHidden=1
 
   " Colourscheme
-   :colorscheme elflord
+   :colorscheme dracula
 
     """"""""""""""""""""""""""""""""
     """" Custom Stuff Goes Here """"
